@@ -1,0 +1,8 @@
+.animal-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.animal-container > * {
+    width: 100%;
+}
