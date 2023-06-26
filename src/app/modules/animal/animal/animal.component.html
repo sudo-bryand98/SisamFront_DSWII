@@ -1,0 +1,83 @@
+<mat-card>
+    <h2 class="alinear">Listado de Animales</h2>
+
+    <mat-card-header>
+        <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+            <ul fxLayout="row" fxLayoutGap="20px">
+                <li>
+                    <button mat-raised-button color="primary" (click)="openAnimalDialog()">Agregar Animal</button>
+                </li>
+            </ul>
+        </div>
+    </mat-card-header>
+
+    <div mat-card-image></div>
+
+    <mat-card-content>
+        <table mat-table [dataSource]="dataSource" class="mat-cell">
+
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef>N°</th>
+                <th mat-cell *matCellDef="let element">{{ element.id }}</th>
+            </ng-container>
+
+            <ng-container matColumnDef="nombre">
+                <th mat-header-cell *matHeaderCellDef>Nombre</th>
+                <th mat-cell *matCellDef="let element">{{ element.nombre }}</th>
+            </ng-container>
+
+            <ng-container matColumnDef="edad">
+                <th mat-header-cell *matHeaderCellDef>Edad</th>
+                <th mat-cell *matCellDef="let element">{{ element.edad }}</th>
+            </ng-container>
+
+            <ng-container matColumnDef="peso">
+                <th mat-header-cell *matHeaderCellDef>Peso</th>
+                <th mat-cell *matCellDef="let element">{{ element.peso }}</th>
+            </ng-container>
+
+            <ng-container matColumnDef="tamanio">
+                <th mat-header-cell *matHeaderCellDef>Tamaño</th>
+                <th mat-cell *matCellDef="let element">{{ element.tamanio }}</th>
+            </ng-container>
+
+            <ng-container matColumnDef="raza">
+                <th mat-header-cell *matHeaderCellDef>raza</th>
+                <th mat-cell *matCellDef="let element">{{ element.raza }}</th>
+            </ng-container>
+
+            <ng-container matColumnDef="descripcion">
+                <th mat-header-cell *matHeaderCellDef>Descripcion</th>
+                <th mat-cell *matCellDef="let element">{{ element.descripcion }}</th>
+            </ng-container>
+
+            <ng-container matColumnDef="tipoAnimal">
+                <th mat-header-cell *matHeaderCellDef>Tipo Animal</th>
+                <th mat-cell *matCellDef="let element">{{ element.tipoAnimal.nombre }}</th>
+            </ng-container>
+
+            <!--Actions-->
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef>Acciones</th>
+                <td mat-cell *matCellDef="let element; let i=index;">
+
+                <button mat-icon-button color="accent" (click)="edit(element.id, element.nombre, element.edad, element.peso, element.tamanio, element.raza, element.descripcion, element.tipoAnimal)">
+                    <mat-icon aria-label="Edit">edit</mat-icon>
+                </button>
+
+                <button mat-icon-button color="accent" (click)="delete(element.id)">
+                    <mat-icon aria-label="Delete">delete</mat-icon>
+                </button>
+            </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons ></mat-paginator>
+
+    </mat-card-content>
+
+</mat-card>

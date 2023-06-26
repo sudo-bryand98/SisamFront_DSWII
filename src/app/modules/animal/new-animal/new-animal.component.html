@@ -1,0 +1,55 @@
+<h2 mat-dialog-title> {{ estadoFormulario }} nuevo Animal </h2>
+<mat-dialog-content>
+
+    <form [formGroup]="animalForm">
+        <div class="animal-container">
+
+            <mat-form-field>
+                <input matInput placeholder="Nombre" formControlName="nombre" required/>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Edad" formControlName="edad" required/>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Peso" formControlName="peso" required/>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Tamaño" formControlName="tamanio" required/>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Raza" formControlName="raza" required/>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Descripción" formControlName="descripcion" required/>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Tipo de animal</mat-label>
+                <mat-select formControlName="tipoAnimal">
+                    <mat-option *ngFor="let tipo of tipoAnimal" [value]="tipo.idTipo">
+                        {{ tipo.nombre }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+        </div>
+
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+
+    <button mat-button color="primary" (click)="onSave()" [disabled]="animalForm.invalid">
+        <mat-icon>save</mat-icon> Guardar
+    </button>
+
+    <button mat-button color="primary" (click)="onCancel()">
+        <mat-icon>cancel</mat-icon> Cancelar
+    </button>
+
+</mat-dialog-actions>
