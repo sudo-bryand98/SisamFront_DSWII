@@ -1,0 +1,8 @@
+.adoptante-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.adoptante-container > * {
+    width: 100%;
+}

@@ -1,0 +1,93 @@
+<mat-card>
+    <h2 class="alinear">Listado de Adoptantes</h2>
+
+    <mat-card-header>
+        <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+            <ul fxLayout="row" fxLayoutGap="20px">
+                <li>
+                    <button mat-raised-button color="primary" (click)="openAdoptanteDialog()">Agregar Adoptante</button>
+                </li>
+            </ul>
+        </div>
+    </mat-card-header>
+
+    <div mat-card-image></div>
+
+    <mat-card-content>
+        <table mat-table [dataSource]="dataSource" class="mat-cell">
+
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef>N°</th>
+                <th mat-cell *matCellDef="let element">{{ element.id }}</th>
+            </ng-container>
+
+            <ng-container matColumnDef="nombre">
+                <th mat-header-cell *matHeaderCellDef>Nombre</th>
+                <th mat-cell *matCellDef="let element">{{ element.nombre }}</th>
+            </ng-container>
+
+            <ng-container matColumnDef="apellido">
+                <th mat-header-cell *matHeaderCellDef>Apellidos</th>
+                <th mat-cell *matCellDef="let element">{{ element.apellido }}</th>
+            </ng-container>
+
+            <ng-container matColumnDef="edad">
+                <th mat-header-cell *matHeaderCellDef>Edad</th>
+                <th mat-cell *matCellDef="let element">{{ element.edad }}</th>
+            </ng-container>
+
+            <ng-container matColumnDef="telefono">
+                <th mat-header-cell *matHeaderCellDef>Teléfono</th>
+                <th mat-cell *matCellDef="let element">{{ element.telefono }}</th>
+            </ng-container>
+
+            <ng-container matColumnDef="correo">
+                <th mat-header-cell *matHeaderCellDef>Correo</th>
+                <th mat-cell *matCellDef="let element">{{ element.correo }}</th>
+            </ng-container>
+
+            <ng-container matColumnDef="numdoc">
+                <th mat-header-cell *matHeaderCellDef>Número de documento</th>
+                <th mat-cell *matCellDef="let element">{{ element.numdoc }}</th>
+            </ng-container>
+
+            <ng-container matColumnDef="ocupacion">
+                <th mat-header-cell *matHeaderCellDef>Ocupación</th>
+                <th mat-cell *matCellDef="let element">{{ element.ocupacion }}</th>
+            </ng-container>
+
+            <ng-container matColumnDef="domicilio">
+                <th mat-header-cell *matHeaderCellDef>Domicilio</th>
+                <th mat-cell *matCellDef="let element">{{ element.domicilio }}</th>
+            </ng-container>
+
+            <ng-container matColumnDef="codTipoDoc">
+                <th mat-header-cell *matHeaderCellDef>Tipo Documento</th>
+                <th mat-cell *matCellDef="let element">{{ element.codTipoDoc.nombreTipoDoc }}</th>
+            </ng-container>
+
+            <!--Actions-->
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef>Acciones</th>
+                <td mat-cell *matCellDef="let element; let i=index;">
+
+                <button mat-icon-button color="accent">
+                    <mat-icon aria-label="Edit">edit</mat-icon>
+                </button>
+
+                <button mat-icon-button color="accent">
+                    <mat-icon aria-label="Delete">delete</mat-icon>
+                </button>
+            </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons ></mat-paginator>
+
+    </mat-card-content>
+
+</mat-card>
