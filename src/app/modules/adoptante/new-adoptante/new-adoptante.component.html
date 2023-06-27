@@ -1,0 +1,63 @@
+<h2 mat-dialog-title> {{ estadoFormulario }} nuevo Adoptante </h2>
+<mat-dialog-content>
+
+    <form [formGroup]="adoptanteForm">
+        <div class="adoptante-container">
+
+            <mat-form-field>
+                <input matInput placeholder="Nombre" formControlName="nombre" required/>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Apellido" formControlName="apellido" required/>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Edad" formControlName="edad" required/>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Teléfono" formControlName="telefono" required/>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Correo" formControlName="correo" required/>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Número de documento" formControlName="numdoc" required/>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Ocupación" formControlName="ocupacion" required/>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Domicilio" formControlName="domicilio" required/>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Tipo de Documento</mat-label>
+                <mat-select formControlName="codTipoDoc">
+                    <mat-option *ngFor="let tipo of tipoDoc" [value]="tipo.CodTipoDoc">
+                        {{ tipo.NombreTipoDoc }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+        </div>
+
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+
+    <button mat-button color="primary" (click)="onSave()" [disabled]="adoptanteForm.invalid">
+        <mat-icon>save</mat-icon> Guardar
+    </button>
+
+    <button mat-button color="primary" (click)="onCancel()">
+        <mat-icon>cancel</mat-icon> Cancelar
+    </button>
+
+</mat-dialog-actions>
