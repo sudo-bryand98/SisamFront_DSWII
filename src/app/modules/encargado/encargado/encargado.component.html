@@ -1,11 +1,11 @@
 <mat-card>
-    <h2 class="alinear">Listado de Adoptantes</h2>
+    <h2 class="alinear">Listado de Encargados</h2>
 
     <mat-card-header>
         <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
             <ul fxLayout="row" fxLayoutGap="20px">
                 <li>
-                    <button mat-raised-button color="primary" (click)="openAdoptanteDialog()">Agregar Adoptante</button>
+                    <button mat-raised-button color="primary" (click)="openEncargadoDialog()">Agregar Encargado</button>
                 </li>
             </ul>
         </div>
@@ -16,9 +16,9 @@
     <mat-card-content>
         <table mat-table [dataSource]="dataSource" class="mat-cell">
 
-            <ng-container matColumnDef="id">
+            <ng-container matColumnDef="codEncargado">
                 <th mat-header-cell *matHeaderCellDef>N°</th>
-                <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+                <td mat-cell *matCellDef="let element">{{ element.codEncargado }}</td>
             </ng-container>
 
             <ng-container matColumnDef="nombre">
@@ -46,23 +46,13 @@
                 <td mat-cell *matCellDef="let element">{{ element.correo }}</td>
             </ng-container>
 
-            <ng-container matColumnDef="numdoc">
+            <ng-container matColumnDef="nroDocumento">
                 <th mat-header-cell *matHeaderCellDef>Número de documento</th>
-                <td mat-cell *matCellDef="let element">{{ element.numdoc }}</td>
-            </ng-container>
-
-            <ng-container matColumnDef="ocupacion">
-                <th mat-header-cell *matHeaderCellDef>Ocupación</th>
-                <td mat-cell *matCellDef="let element">{{ element.ocupacion }}</td>
-            </ng-container>
-
-            <ng-container matColumnDef="domicilio">
-                <th mat-header-cell *matHeaderCellDef>Domicilio</th>
-                <td mat-cell *matCellDef="let element">{{ element.domicilio }}</td>
+                <td mat-cell *matCellDef="let element">{{ element.nroDocumento }}</td>
             </ng-container>
 
             <ng-container matColumnDef="codTipoDoc">
-                <th mat-header-cell *matHeaderCellDef>Tipo Documento</th>
+                <th mat-header-cell *matHeaderCellDef>Ocupación</th>
                 <td mat-cell *matCellDef="let element">{{ element.codTipoDoc.nombreTipoDoc }}</td>
             </ng-container>
 
@@ -71,11 +61,11 @@
                 <th mat-header-cell *matHeaderCellDef>Acciones</th>
                 <td mat-cell *matCellDef="let element; let i=index;">
 
-                <button mat-icon-button color="accent" (click)="edit(element.id, element.nombre, element.apellido, element.edad, element.telefono, element.correo, element.numdoc, element.ocupacion, element.domicilio, element.codTipoDoc)">
+                <button mat-icon-button color="accent" (click)="edit(element.codEncargado, element.nombre, element.apellido, element.edad, element.telefono, element.correo, element.nroDocumento, element.codTipoDoc)">
                     <mat-icon aria-label="Edit">edit</mat-icon>
                 </button>
 
-                <button mat-icon-button color="accent" (click)="delete(element.id)">
+                <button mat-icon-button color="accent" (click)="delete(element.codEncargado)">
                     <mat-icon aria-label="Delete">delete</mat-icon>
                 </button>
             </td>

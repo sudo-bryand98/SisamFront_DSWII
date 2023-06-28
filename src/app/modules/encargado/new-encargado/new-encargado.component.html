@@ -1,7 +1,7 @@
-<h2 mat-dialog-title> {{ estadoFormulario }} nuevo Adoptante </h2>
+<h2 mat-dialog-title> {{ estadoFormulario }} nuevo Encargado </h2>
 <mat-dialog-content>
 
-    <form [formGroup]="adoptanteForm">
+    <form [formGroup]="encargadoForm">
         <div class="adoptante-container">
 
             <mat-form-field>
@@ -25,19 +25,7 @@
             </mat-form-field>
 
             <mat-form-field>
-                <input matInput placeholder="Número de documento" formControlName="numdoc" required/>
-            </mat-form-field>
-
-            <mat-form-field>
-                <input matInput placeholder="Ocupación" formControlName="ocupacion" required/>
-            </mat-form-field>
-
-            <mat-form-field>
-                <input matInput placeholder="Domicilio" formControlName="domicilio" required/>
-            </mat-form-field>
-
-            <mat-form-field>
-                <input matInput placeholder="Número de documento" formControlName="numdoc" required/>
+                <input matInput placeholder="Número de documento" formControlName="nroDocumento" required/>
             </mat-form-field>
 
             <mat-form-field>
@@ -56,7 +44,7 @@
 
 <mat-dialog-actions>
 
-    <button mat-button color="primary" (click)="onSave()" [disabled]="adoptanteForm.invalid">
+    <button mat-button color="primary" (click)="onSave()" [disabled]="encargadoForm.invalid">
         <mat-icon>save</mat-icon> Guardar
     </button>
 
@@ -65,3 +53,4 @@
     </button>
 
 </mat-dialog-actions>
+

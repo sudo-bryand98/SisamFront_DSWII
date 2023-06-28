@@ -12,9 +12,9 @@ export class SidenavComponent implements OnInit {
 
   menuNav = [
     {name: "Home", route: "home", icon: "home"},
-    {name: "Animal", route: "animal", icon: "pets"},
+    {name: "Mascotas", route: "animal", icon: "pets"},
     {name: "Adoptante", route: "adoptante", icon: "person"},
-    {name: "Encargado", route: "Encargado", icon: "assignment_ind"},
+    {name: "Encargado", route: "encargado", icon: "assignment_ind"},
     {name: "Registrar Solicitud", route: "Registrar Solicitud", icon: "description"}
   ]
 

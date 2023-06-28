@@ -1,5 +1,5 @@
 <mat-card>
-    <h2 class="alinear">Listado de Animales</h2>
+    <h2 class="alinear">Listado de Mascotas</h2>
 
     <mat-card-header>
         <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
@@ -18,42 +18,42 @@
 
             <ng-container matColumnDef="id">
                 <th mat-header-cell *matHeaderCellDef>N°</th>
-                <th mat-cell *matCellDef="let element">{{ element.id }}</th>
+                <td mat-cell *matCellDef="let element">{{ element.id }}</td>
             </ng-container>
 
             <ng-container matColumnDef="nombre">
                 <th mat-header-cell *matHeaderCellDef>Nombre</th>
-                <th mat-cell *matCellDef="let element">{{ element.nombre }}</th>
+                <td mat-cell *matCellDef="let element">{{ element.nombre }}</td>
             </ng-container>
 
             <ng-container matColumnDef="edad">
                 <th mat-header-cell *matHeaderCellDef>Edad</th>
-                <th mat-cell *matCellDef="let element">{{ element.edad }}</th>
+                <td mat-cell *matCellDef="let element">{{ element.edad }}</td>
             </ng-container>
 
             <ng-container matColumnDef="peso">
                 <th mat-header-cell *matHeaderCellDef>Peso</th>
-                <th mat-cell *matCellDef="let element">{{ element.peso }}</th>
+                <td mat-cell *matCellDef="let element">{{ element.peso }}</td>
             </ng-container>
 
             <ng-container matColumnDef="tamanio">
                 <th mat-header-cell *matHeaderCellDef>Tamaño</th>
-                <th mat-cell *matCellDef="let element">{{ element.tamanio }}</th>
+                <td mat-cell *matCellDef="let element">{{ element.tamanio }}</td>
             </ng-container>
 
             <ng-container matColumnDef="raza">
                 <th mat-header-cell *matHeaderCellDef>raza</th>
-                <th mat-cell *matCellDef="let element">{{ element.raza }}</th>
+                <td mat-cell *matCellDef="let element">{{ element.raza }}</td>
             </ng-container>
 
             <ng-container matColumnDef="descripcion">
                 <th mat-header-cell *matHeaderCellDef>Descripcion</th>
-                <th mat-cell *matCellDef="let element">{{ element.descripcion }}</th>
+                <td mat-cell *matCellDef="let element">{{ element.descripcion }}</td>
             </ng-container>
 
             <ng-container matColumnDef="tipoAnimal">
                 <th mat-header-cell *matHeaderCellDef>Tipo Animal</th>
-                <th mat-cell *matCellDef="let element">{{ element.tipoAnimal.nombre }}</th>
+                <td mat-cell *matCellDef="let element">{{ element.tipoAnimal.nombre }}</td>
             </ng-container>
 
             <!--Actions-->

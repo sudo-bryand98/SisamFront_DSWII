@@ -1,9 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AdoptanteService } from '../../shared/services/adoptante.service';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { EncargadoService } from '../../shared/services/encargado.service';
 import { TipodocServiceService } from '../../shared/services/tipodoc-service.service';
-
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 export interface TipoDoc{
   codTipoDoc: number;
@@ -11,31 +10,29 @@ export interface TipoDoc{
 }
 
 @Component({
-  selector: 'app-new-adoptante',
-  templateUrl: './new-adoptante.component.html',
-  styleUrls: ['./new-adoptante.component.css']
+  selector: 'app-new-encargado',
+  templateUrl: './new-encargado.component.html',
+  styleUrls: ['./new-encargado.component.css']
 })
-export class NewAdoptanteComponent implements OnInit {
+export class NewEncargadoComponent implements OnInit {
 
-
-  public adoptanteForm: FormGroup;
+  public encargadoForm: FormGroup;
   estadoFormulario: string = "";
   tipoDoc: TipoDoc[]=[];
 
-  constructor(private fb: FormBuilder, private adoptanteService: AdoptanteService, 
-    private tipoDocService: TipodocServiceService, private dialogRef: MatDialogRef<NewAdoptanteComponent>,
-    @Inject(MAT_DIALOG_DATA) public data:any) {
+  constructor(private fb: FormBuilder, private encargadoService: EncargadoService, 
+    private tipoDocService: TipodocServiceService, private dialogRef: MatDialogRef<NewEncargadoComponent>,
+    @Inject(MAT_DIALOG_DATA) public data:any) { 
+
 
       this.estadoFormulario = "Agregar"
-      this.adoptanteForm = this.fb.group( {
+      this.encargadoForm = this.fb.group( {
         nombre: ['', Validators.required],
         apellido: ['', Validators.required],
         edad: ['', Validators.required],
         telefono: ['', Validators.required],
         correo: ['', Validators.required],
-        numdoc: ['', Validators.required],
-        ocupacion: ['', Validators.required],
-        domicilio: ['', Validators.required],
+        nroDocumento: ['', Validators.required],
         codTipoDoc: ['', Validators.required]
       })
 
@@ -43,7 +40,8 @@ export class NewAdoptanteComponent implements OnInit {
         this.updateForm(data);
         this.estadoFormulario = "Actualizar"
       }
-     }
+
+    }
 
   ngOnInit(): void {
     this.getTipoDoc();
@@ -51,15 +49,13 @@ export class NewAdoptanteComponent implements OnInit {
 
   onSave(){
     let data = {
-      nombre: this.adoptanteForm.get('nombre')?.value,
-      apellido: this.adoptanteForm.get('apellido')?.value,
-      edad: this.adoptanteForm.get('edad')?.value,
-      telefono: this.adoptanteForm.get('telefono')?.value,
-      correo: this.adoptanteForm.get('correo')?.value,
-      numdoc: this.adoptanteForm.get('numdoc')?.value,
-      ocupacion: this.adoptanteForm.get('ocupacion')?.value,
-      domicilio: this.adoptanteForm.get('domicilio')?.value,
-      codTipoDoc: this.adoptanteForm.get('codTipoDoc')?.value,
+      nombre: this.encargadoForm.get('nombre')?.value,
+      apellido: this.encargadoForm.get('apellido')?.value,
+      edad: this.encargadoForm.get('edad')?.value,
+      telefono: this.encargadoForm.get('telefono')?.value,
+      correo: this.encargadoForm.get('correo')?.value,
+      nroDocumento: this.encargadoForm.get('nroDocumento')?.value,
+      codTipoDoc: this.encargadoForm.get('codTipoDoc')?.value,
     }
 
     const uploadImageData = new FormData();
@@ -68,20 +64,18 @@ export class NewAdoptanteComponent implements OnInit {
     uploadImageData.append('edad', data.edad);
     uploadImageData.append('telefono', data.telefono);
     uploadImageData.append('correo', data.correo);
-    uploadImageData.append('numdoc', data.numdoc);
-    uploadImageData.append('ocupacion', data.ocupacion);
-    uploadImageData.append('domicilio', data.domicilio);
-    uploadImageData.append('tipoDocId', data.codTipoDoc);
+    uploadImageData.append('nroDocumento', data.nroDocumento);
+    uploadImageData.append('codTipoDoc', data.codTipoDoc);
 
     if(this.data != null){
-      this.adoptanteService.updateAdoptante(uploadImageData, this.data.id)
+      this.encargadoService.updateEncargado(uploadImageData, this.data.codEncargado)
                       .subscribe( (data: any) => {
                         this.dialogRef.close(1);
                       }, (error: any) => {
                         this.dialogRef.close(2);
                       })
     }else{
-    this.adoptanteService.saveAdoptante(uploadImageData)
+    this.encargadoService.saveEncargado(uploadImageData)
                 .subscribe( (data: any) => {
                   this.dialogRef.close(1);
                 }, (error: any) => {
@@ -104,16 +98,14 @@ export class NewAdoptanteComponent implements OnInit {
   }
 
   updateForm(data: any){
-    this.adoptanteForm = this.fb.group( {
+    this.encargadoForm = this.fb.group( {
       nombre: [data.nombre, Validators.required],
       apellido: [data.apellido, Validators.required],
       edad: [data.edad, Validators.required],
       telefono: [data.telefono, Validators.required],
       correo: [data.correo, Validators.required],
-      numdoc: [data.numdoc, Validators.required],
-      ocupacion: [data.ocupacion, Validators.required],
-      domicilio: [data.domicilio, Validators.required],
-      codTipoDoc: [data.codTipoDoc.codTipoDoc, Validators.required]
+      nroDocumento: [data.nroDocumento, Validators.required],
+      codTipoDoc: [data.codTipoDoc.codTipoDoc, Validators.required],
     })
   }
 
