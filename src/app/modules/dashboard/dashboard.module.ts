@@ -7,6 +7,7 @@ import { SharedModule } from '../shared/shared.module';
 import { AnimalModule } from '../animal/animal.module';
 import { AdoptanteModule } from '../adoptante/adoptante.module';
 import { EncargadoModule } from '../encargado/encargado.module';
+import { SolicitudModule } from '../solicitud/solicitud.module';
 
 
 
@@ -21,7 +22,8 @@ import { EncargadoModule } from '../encargado/encargado.module';
     SharedModule,
     AnimalModule,
     AdoptanteModule,
-    EncargadoModule
+    EncargadoModule,
+    SolicitudModule
   ]
 })
 export class DashboardModule { }

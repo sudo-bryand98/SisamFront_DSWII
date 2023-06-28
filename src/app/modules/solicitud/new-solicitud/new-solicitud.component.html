@@ -1,0 +1,57 @@
+<h2 mat-dialog-title> {{ estadoFormulario }} nueva Solicitud </h2>
+<mat-dialog-content>
+
+    <form [formGroup]="solicitudForm">
+        <div class="adoptante-container">
+
+            <mat-form-field>
+                <input type="date" matInput placeholder="Fecha de Solicitud" formControlName="fechasolicitud" required/>
+            </mat-form-field>
+        
+            <mat-form-field>
+                <mat-label>Mascota</mat-label>
+                <mat-select formControlName="animal">
+                    <mat-option *ngFor="let anim of animales" [value]="anim.id">
+                        {{ anim.nombre }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Adoptante</mat-label>
+                <mat-select formControlName="adoptante">
+                    <mat-option *ngFor="let adop of adoptantes" [value]="adop.id">
+                        {{ adop.nombre }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Encargado</mat-label>
+                <mat-select formControlName="encargado">
+                    <mat-option *ngFor="let enc of encargados" [value]="enc.codEncargado">
+                        {{ enc.nombre }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <textarea matInput placeholder="Observaciones" formControlName="observaciones" required> </textarea>
+            </mat-form-field>
+
+        </div>
+
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+
+    <button mat-button color="primary" (click)="onSave()" [disabled]="solicitudForm.invalid">
+        <mat-icon>save</mat-icon> Guardar
+    </button>
+
+    <button mat-button color="primary" (click)="onCancel()">
+        <mat-icon>cancel</mat-icon> Cancelar
+    </button>
+
+</mat-dialog-actions>
