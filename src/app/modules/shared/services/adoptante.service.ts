@@ -30,4 +30,9 @@ export class AdoptanteService {
     const endpoint = `${ base_url}/adoptantes/ ${id}`;
     return this.http.delete(endpoint);
   }
+
+  getAdoptanteById(id: any){
+    const endpoint = `${base_url}/adoptantes/ ${id}`;
+    return this.http.get(endpoint);
+  }
 }

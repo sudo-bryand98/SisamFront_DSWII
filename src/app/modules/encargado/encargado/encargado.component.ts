@@ -105,6 +105,17 @@ export class EncargadoComponent implements OnInit {
     })
   }
 
+  buscar(termino: string){
+    if(termino.length === 0){
+      return this.getEncargados();
+    }
+
+    this.encargadoService.getEncargadoById(termino)
+      .subscribe( (resp: any) => {
+        this.processEncargadoResponse(resp);
+      })
+  }
+
 }
 
 

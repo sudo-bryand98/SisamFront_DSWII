@@ -72,6 +72,17 @@ export class SolicitudComponent implements OnInit {
     })
   }
 
+  buscar(termino: string){
+    if(termino.length === 0){
+      return this.getSolicitud();
+    }
+
+    this.solicitudService.getSolicitudById(termino)
+      .subscribe( (resp: any) => {
+        this.processSolicitudResponse(resp);
+      })
+  }
+
 }
 
 export interface SolicitudElement{

@@ -2,6 +2,15 @@
     <h2 class="alinear">Listado de Encargados</h2>
 
     <mat-card-header>
+        <div>
+            <mat-form-field hintLabel="Busque Encargado" appearance="fill">
+                <mat-label>Buscar Encargado</mat-label>
+                <input matInput #input (keyup)="buscar(input.value)">
+            </mat-form-field>
+        </div>
+    </mat-card-header>
+
+    <mat-card-header>
         <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
             <ul fxLayout="row" fxLayoutGap="20px">
                 <li>

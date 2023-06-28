@@ -104,6 +104,17 @@ export class AdoptanteComponent implements OnInit {
       }
     });
   }
+
+  buscar(termino: string){
+    if(termino.length === 0){
+      return this.getAdoptantes();
+    }
+
+    this.adoptanteService.getAdoptanteById(termino)
+      .subscribe( (resp: any) => {
+        this.processAdoptanteResponse(resp);
+      })
+  }
 }
 
 export interface AdoptanteElement{

@@ -30,4 +30,9 @@ export class AnimalService {
     const endpoint = `${ base_url}/animales/ ${id}`;
     return this.http.delete(endpoint);
   }
+
+  getAnimalById(id: any){
+    const endpoint = `${base_url}/animales/ ${id}`;
+    return this.http.get(endpoint);
+  }
 }

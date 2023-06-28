@@ -32,4 +32,9 @@ export class EncargadoService {
     return this.http.delete(endpoint);
   }
 
+  getEncargadoById(codEncargado: any){
+    const endpoint = `${base_url}/encargado/ ${codEncargado}`;
+    return this.http.get(endpoint);
+  }
+
 }

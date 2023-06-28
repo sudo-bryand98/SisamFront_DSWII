@@ -21,6 +21,9 @@ export class SolicitudService {
     return this.http.post(endpoint, body);
   }
 
-  
+  getSolicitudById(idsolicitud: any){
+    const endpoint = `${base_url}/solicitudes/ ${idsolicitud}`;
+    return this.http.get(endpoint);
+  }
 
 }

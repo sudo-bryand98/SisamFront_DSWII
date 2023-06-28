@@ -106,6 +106,17 @@ export class AnimalComponent implements OnInit {
     });
   }
 
+  buscar(termino: string){
+    if(termino.length === 0){
+      return this.getAnimales();
+    }
+
+    this.animalService.getAnimalById(termino)
+      .subscribe( (resp: any) => {
+        this.processAnimalResponse(resp);
+      })
+  }
+
 }
 
 export interface AnimalElement{
