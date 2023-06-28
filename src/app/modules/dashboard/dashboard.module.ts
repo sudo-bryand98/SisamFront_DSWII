@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { AnimalModule } from '../animal/animal.module';
 import { TipoAnimalModule } from '../tipoAnimal/tipo-animal.module';
+import { EncargadoModule } from '../encargado/encargado.module';
 
 
 
@@ -19,7 +20,8 @@ import { TipoAnimalModule } from '../tipoAnimal/tipo-animal.module';
     CommonModule,
     SharedModule,
     AnimalModule,
-    TipoAnimalModule
+    TipoAnimalModule,
+    EncargadoModule
   ]
 })
 export class DashboardModule { }

@@ -14,8 +14,9 @@ export class SidenavComponent implements OnInit {
     {name: "Home", route: "home", icon: "home"},
     {name: "Animal", route: "animal", icon: "pets"},
     {name: "Adoptante", route: "Adoptante", icon: "person"},
-    {name: "Encargado", route: "Encargado", icon: "assignment_ind"},
-    {name: "Registrar Solicitud", route: "Registrar Solicitud", icon: "description"}
+    {name: "Encargado", route: "encargado", icon: "assignment_ind"},
+    {name: "Registrar Solicitud", route: "Registrar Solicitud", icon: "description"},
+   
   ]
 
   constructor(media: MediaMatcher) { 

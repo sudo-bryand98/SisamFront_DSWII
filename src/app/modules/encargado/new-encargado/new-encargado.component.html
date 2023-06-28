@@ -1,0 +1,60 @@
+<h2 mat-dialog-title> {{ estadoFormulario }} nuevo Encargado </h2>
+<mat-dialog-content>
+
+    <form [formGroup]="encargadoForm">
+        <div class="animal-container">
+
+            <mat-form-field>
+                <input matInput placeholder="nombre" formControlName="nombre" required/>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="apellido" formControlName="apellido" required/>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="telefono" formControlName="telefono" required/>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="edad" formControlName="edad" required/>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="correo" formControlName="correo" required/>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Tipo de Doc</mat-label>
+                <mat-select formControlName="codTipoDoc">
+                    <mat-option *ngFor="let tipo of tipoDocs" [value]="tipo.codTipoDoc">
+                        {{ tipo.nombreTipoDoc }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+
+
+            
+            <mat-form-field>
+                <input matInput placeholder="nroDocumento" formControlName="nroDocumento" required/>
+            </mat-form-field>
+
+           
+
+        </div>
+
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+
+    <button mat-button color="primary" (click)="onSave()" [disabled]="encargadoForm.invalid">
+        <mat-icon>save</mat-icon> Guardar
+    </button>
+
+    <button mat-button color="primary" (click)="onCancel()">
+        <mat-icon>cancel</mat-icon> Cancelar
+    </button>
+
+</mat-dialog-actions>
